@@ -1,0 +1,652 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: #1c1c1c;
+}
+
+/* Skip Content */
+.skip-link {
+	position: absolute;
+	top: -60px;
+	left: 0;
+	background-color: #1c1c1c;
+	color: #3fc1b0;
+	text-decoration: none;
+	font-weight: 800;
+	padding: 16px;
+	z-index: 100;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
+/* Header */
+.header {
+	min-height: 56px;
+}
+.header__inner {
+	padding: 10px 30px;
+	background-color: #3fc1b0;
+	position: relative;
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	line-height: 1.5;
+	z-index: 10;
+}
+.header__menu {
+	display: flex;
+	justify-content: center;
+	border: none;
+	width: 50px;
+	font-size: 32px;
+	background-color: #3fc1b0;
+	color: #1c1c1c;
+}
+.header__title {
+	font-weight: 800;
+	font-size: 2em;
+	text-align: center;
+	text-decoration: none;
+	color: #1c1c1c;
+}
+
+/* Nav */
+.nav {
+	width: 100%;
+	position: absolute;
+	background-color: #1c1c1c;
+	-webkit-transform: translate(0, -300px);
+	transform: translate(0, -300px);
+	transition: transform 0.5s ease;
+	z-index: 4;
+}
+.nav__item a {
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 800;
+	width: 100%;
+	padding: 20px;
+	display: inline-block;
+	border-bottom: 2px solid #3fc1b0;
+}
+.nav__item a:hover {
+	background-color: black;
+}
+.open {
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+/* Hero */
+.hero {
+	display: flex;
+	align-items: center;
+	min-height: 380px;
+	width: 100%;
+	text-align: center;
+	background-image: url("/images/heros/hero-image_4-small.jpg");
+	background-position: center;
+	background-color: #3fc1b0;
+	background-size: cover;
+}
+.hero:before {
+	content: "";
+	position: absolute;
+	min-height: 380px;
+	width: 100%;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.hero__inner {
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 10px;
+	z-index: 2;
+}
+.hero__title {
+	color: #fff;
+	font-weight: 800;
+	font-size: 36px;
+}
+.hero__tagline {
+	color: #fff;
+	margin-top: 16px;
+	font-size: 18px;
+	font-weight: 400;
+}
+.hero__search {
+	margin-top: 16px;
+	display: flex;
+	justify-content: center;
+}
+.search__text {
+	background-color: rgba(0, 0, 0, 0.8);
+	border: 2px solid #3fc1b0;
+	border-radius: 10px 0 0 10px;
+	border-right: none;
+	width: 230px;
+	padding: 10px;
+	color: #3fc1b0;
+	font-weight: 600;
+}
+.search__text::placeholder {
+	color: #aaaaaa;
+	font-size: 12px;
+}
+.search__submit {
+	background-color: #3fc1b0;
+	border-radius: 0 10px 10px 0;
+	min-width: 70px;
+	min-height: 44px;
+	border: none;
+}
+.search__submit:hover {
+	background-color: black;
+	border: 2px solid #3fc1b0;
+	color: white;
+}
+
+/* Loading */
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	gap: 20px;
+}
+.loading__tag {
+	font-size: 36px;
+	font-weight: 800;
+	color: #3fc1b0;
+}
+.loading__rotate {
+	width: 100px;
+	height: 100px;
+	animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+/* Error */
+.error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	gap: 20px;
+}
+.error .material-icons {
+	color: #c13f50;
+	font-size: 72px;
+}
+.error__message {
+	text-align: center;
+	color: #3fc1b0;
+	font-weight: 800;
+	font-size: 36px;
+}
+
+/* Invisible */
+.invisible {
+	display: none;
+}
+
+/* Skeleton */
+.skeleton:empty {
+	height: 511px;
+	margin: 20px 0;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(
+			90deg,
+			rgba(60, 60, 60, 0) 0,
+			rgba(60, 60, 60, 0.8) 50%,
+			rgba(60, 60, 60, 0) 100%
+		),
+		linear-gradient(#6c6c6c 44px, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0);
+	background-size: 200px 100%, 120px 44px, 100% 250px, 100% 62px,
+		calc(100% - 32px) 49px, calc(100% - 32px) 18px, calc(90% - 32px) 18px,
+		calc(80% - 32px) 18px, calc(100% - 32px) 18px, 100% 100%;
+	background-position: -250% 0, 0 15px, 0 0, 0 250px, 16px 328px, 16px 393px,
+		16px 421px, 16px 449px, 16px 477px, 0 0;
+	animation: looping 1.75s infinite;
+}
+
+.skeleton__main:empty {
+	height: 666px;
+	margin: 20px 0;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(
+			90deg,
+			rgba(60, 60, 60, 0) 0,
+			rgba(60, 60, 60, 0.8) 50%,
+			rgba(60, 60, 60, 0) 100%
+		),
+		radial-gradient(circle 23px, #6c6c6c 46px, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0);
+	background-size: 200px 100%, 46px 46px, 100% 250px, 100% 62px, 24px 24px,
+		100px 24px, 70px 25px, 70px 25px, 24px 24px, 44px 24px, 80px 25px, 24px 24px,
+		80px 24px, 150px 25px, 24px 24px, 110px 24px, calc(100% - 61px) 100px,
+		100% 100%;
+	background-position: -250% 0, calc(100% - 10px) 194px, 0 0, 0 250px,
+		16px 328px, 45px 328px, 45px 357px, 120px 357px, 16px 392px, 45px 392px,
+		45px 421px, 16px 456px, 45px 456px, 45px 486px, 16px 521px, 45px 521px,
+		45px 550px, 0 0;
+	animation: looping_main 1.75s infinite;
+}
+
+.skeleton__menu:empty {
+	height: 321px;
+	margin: 20px 0;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(
+			90deg,
+			rgba(60, 60, 60, 0) 0,
+			rgba(60, 60, 60, 0.8) 50%,
+			rgba(60, 60, 60, 0) 100%
+		),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0);
+	background-size: 200px 100%, 100% 51px, 24px 24px, 55px 24px,
+		calc(100% - 61px) 25px, calc(100% - 61px) 25px, calc(100% - 61px) 25px,
+		24px 24px, 55px 24px, calc(100% - 61px) 25px, calc(100% - 61px) 25px,
+		calc(100% - 61px) 25px, 100% 100%;
+	background-position: -250% 0, 0 0, 16px 67px, 45px 67px, 45px 96px, 45px 126px,
+		45px 156px, 16px 191px, 45px 191px, 45px 220px, 45px 250px, 45px 280px, 0 0;
+	animation: looping_menu 1.75s infinite;
+}
+
+.skeleton__review:empty {
+	height: 325px;
+	margin: 20px 0;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(
+			90deg,
+			rgba(60, 60, 60, 0) 0,
+			rgba(60, 60, 60, 0.8) 50%,
+			rgba(60, 60, 60, 0) 100%
+		),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0);
+	background-size: 200px 100%, 100% 51px, 24px 24px, 70px 24px,
+		calc(100% - 61px) 25px, 130px 15px, 24px 24px, 70px 24px,
+		calc(100% - 61px) 25px, 130px 15px, 24px 24px, 70px 24px,
+		calc(100% - 61px) 25px, 130px 15px, 100% 100%;
+	background-position: -250% 0, 0 0, 16px 67px, 45px 67px, 45px 96px, 45px 126px,
+		16px 151px, 45px 151px, 45px 180px, 45px 210px, 16px 235px, 45px 235px,
+		45px 264px, 45px 294px, 0 0;
+	animation: looping_review 1.75s infinite;
+}
+
+.skeleton__addreview:empty {
+	height: 340px;
+	margin: 20px 0;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(
+			90deg,
+			rgba(60, 60, 60, 0) 0,
+			rgba(60, 60, 60, 0.8) 50%,
+			rgba(60, 60, 60, 0) 100%
+		),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#6c6c6c 100%, transparent 0),
+		linear-gradient(#3c3c3c 100%, transparent 0);
+	background-size: 200px 100%, 100% 51px, 24px 24px, 51px 24px,
+		calc(100% - 32px) 35px, 24px 24px, 65px 24px, calc(100% - 32px) 100px,
+		calc(100% - 32px) 44px, 100% 100%;
+	background-position: -250% 0, 0 0, 16px 67px, 45px 67px, 16px 96px, 16px 141px,
+		45px 141px, 16px 170px, 16px 280px, 0 0;
+	animation: looping_addreview 1.75s infinite;
+}
+
+@keyframes looping {
+	to {
+		background-position: 450% 0, 0 15px, 0 0, 0 250px, 16px 328px, 16px 393px,
+			16px 421px, 16px 449px, 16px 477px, 0 0;
+	}
+}
+
+@keyframes looping_main {
+	to {
+		background-position: 450% 0, calc(100% - 10px) 194px, 0 0, 0 250px,
+			16px 328px, 45px 328px, 45px 357px, 120px 357px, 16px 392px, 45px 392px,
+			45px 421px, 16px 456px, 45px 456px, 45px 486px, 16px 521px, 45px 521px,
+			45px 550px, 0 0;
+	}
+}
+
+@keyframes looping_menu {
+	to {
+		background-position: 450% 0, 0 0, 16px 67px, 45px 67px, 45px 96px,
+			45px 126px, 45px 156px, 16px 191px, 45px 191px, 45px 220px, 45px 250px,
+			45px 280px, 0 0;
+	}
+}
+
+@keyframes looping_review {
+	to {
+		background-position: 450% 0, 0 0, 16px 67px, 45px 67px, 45px 96px,
+			45px 126px, 16px 151px, 45px 151px, 45px 180px, 45px 210px, 16px 235px,
+			45px 235px, 45px 264px, 45px 294px, 0 0;
+	}
+}
+
+@keyframes looping_addreview {
+	to {
+		background-position: 450% 0, 0 0, 16px 67px, 45px 67px, 16px 96px,
+			16px 141px, 45px 141px, 16px 170px, 16px 280px, 0 0;
+	}
+}
+
+/* Content */
+.content {
+	padding: 15px;
+}
+
+/* Katalog */
+.katalog__label {
+	text-align: center;
+	margin: 30px auto;
+	color: #fff;
+}
+
+/* Cards */
+.cards {
+	margin: 20px auto;
+	max-width: 1200px;
+}
+
+/* Card and Detail*/
+.card,
+.detail {
+	width: 100%;
+	background-color: #3fc1b0;
+	border-radius: 10px;
+	margin: 20px auto;
+}
+.card__content {
+	padding: 16px;
+}
+.card__tag {
+	background-color: black;
+	border-radius: 0 10px 10px 0;
+	padding: 10px 20px 10px 10px;
+	margin-top: 15px;
+	min-width: 80px;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	gap: 10px;
+	position: absolute;
+	color: white;
+}
+.card__imagebox {
+	height: 250px;
+}
+.card__image,
+.detail__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px 10px 0 0;
+}
+.card__rate,
+.detail__rate {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 16px;
+	background-color: black;
+	color: #3fc1b0;
+	font-weight: bold;
+}
+.card__title {
+	padding: 15px;
+	margin-bottom: 16px;
+	background-color: black;
+	font-weight: 800;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+.card__description {
+	line-height: 1.5em;
+	font-size: 12px;
+	font-weight: 600;
+}
+.detail__content {
+	display: grid;
+	gap: 10px;
+	padding: 16px;
+}
+
+/* Star */
+.star {
+	width: auto;
+	display: inline-block;
+	position: relative;
+}
+.rating {
+	line-height: 1;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.rating span {
+	font-size: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	font-weight: 400;
+	color: gold;
+}
+.rating span:before {
+	content: "\2606\2606\2606\2606\2606";
+	position: absolute;
+	font-weight: 400;
+	color: gold;
+	z-index: 1;
+}
+/* End Star */
+
+.detail__header {
+	background-color: black;
+	color: white;
+	border-radius: 10px 10px 0 0;
+	padding: 16px;
+	text-align: center;
+	font-weight: bold;
+}
+.detail__itemTitle {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 16px;
+	font-weight: 800;
+}
+.detail__itemContent {
+	font-size: 12px;
+	font-weight: 600;
+	padding-left: 29px;
+}
+.detail__itemTag {
+	background-color: black;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0 5px 5px 0;
+	border-radius: 5px;
+	color: #3fc1b0;
+}
+.detail__description {
+	line-height: 1.5em;
+	font-size: 12px;
+	font-weight: 600;
+}
+.detail__main {
+	position: relative;
+}
+.detail__review {
+	overflow: hidden;
+}
+.detail__review .detail__content {
+	max-height: 400px;
+	overflow-y: auto;
+}
+.detail__review > .detail__content::after {
+	content: "";
+	display: block;
+	height: 16px;
+}
+
+/* Like */
+.detail__like {
+	position: absolute;
+	right: 10px;
+	margin-top: -56px;
+}
+#likeButton {
+	border-radius: 0;
+	background-color: #c13f50;
+	display: flex;
+	color: #fff;
+	padding: 15px;
+	border: none;
+	border-radius: 50%;
+}
+#likeButton .material-icons {
+	font-size: 16px;
+}
+
+/* Review */
+#review__name,
+#review__text,
+#review__submit {
+	background-color: black;
+	border: none;
+	padding: 15px;
+	border-radius: 5px;
+	color: #3fc1b0;
+	width: 100%;
+	font-weight: 600;
+	font-size: 12px;
+	font-family: "Montserrat", sans-serif;
+}
+#review__text {
+	resize: vertical;
+	min-height: 100px;
+	max-height: 200px;
+}
+#review__submit {
+	min-height: 44px;
+	font-weight: 800;
+	font-size: 16px;
+}
+#review__submit:hover {
+	background-color: white;
+	color: black;
+}
+#review__name::placeholder,
+#review__text::placeholder {
+	color: #aaaaaa;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #32998c;
+}
+::-webkit-scrollbar-thumb {
+	background: white;
+	border-radius: 5px;
+}
+
+/* Footer */
+footer {
+	background-color: #3fc1b0;
+	padding: 2em;
+	width: 100%;
+	text-align: center;
+	font-weight: 600;
+}
